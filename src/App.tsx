@@ -36,8 +36,8 @@ function App() {
   };
 
   const handleCalculate = () => {
-    const val1 = parseInt(value1);
-    const val2 = parseInt(value2);
+    const val1 = parseFloat(value1);
+    const val2 = parseFloat(value2);
     let total;
 
     if (isNaN(val1) || isNaN(val2)) {
@@ -65,8 +65,14 @@ function App() {
         total = "Error";
     }
 
-    setDisplay(total.toString());
-    setValue1(total.toString());
+    if (typeof total === "number") {
+      setDisplay(total.toFixed(2).toString());
+      setValue1(total.toFixed(2).toString());
+    } else {
+      setDisplay(total);
+      setValue1(total);
+    }
+
     setValue2("");
     setOperator("");
   };
