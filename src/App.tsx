@@ -65,12 +65,12 @@ function App() {
         total = "Error";
     }
 
-    if (typeof total === "number") {
+    if (typeof total === "number" && total < 1) {
       setDisplay(total.toFixed(2).toString());
       setValue1(total.toFixed(2).toString());
     } else {
-      setDisplay(total);
-      setValue1(total);
+      setDisplay(total.toString());
+      setValue1(total.toString());
     }
 
     setValue2("");
