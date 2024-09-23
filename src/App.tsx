@@ -13,7 +13,7 @@ function App() {
 // setDisplay(value) => value1 + value
 //  }
 
- const handleOperator = (value) => {
+ const handleOperator = (value: string) => {
   setOperator(value)
   setDisplay(value)
  }
@@ -22,6 +22,13 @@ function App() {
 //   let total = {value1} {operator} {value2}
 //   setDisplay(total)
 //  }
+
+const handleClear = () => {
+  setValue1("")
+  setValue2("")
+  setOperator("")
+  setDisplay("")
+ }
 
   return (
     <div className="bg-black w-56 h-96 m-auto mt-10 p-4 text-white rounded-lg">
@@ -47,7 +54,7 @@ function App() {
       </div>
       <div>
         <button className="rounded-full bg-neutral-400 w-10 h-10 m-1" onClick={() => setValue((value) => value + "0")}>0</button>
-        <button className="rounded-full bg-neutral-400 w-10 h-10 m-1" onClick={() => setDisplay("")}>C</button>
+        <button className="rounded-full bg-neutral-400 w-10 h-10 m-1" onClick={() => handleClear()}>C</button>
         <button className="rounded-full bg-neutral-400 w-10 h-10 m-1" onClick={() => setValue((value) => value + "=")}>=</button>
         <button className="rounded-full bg-orange-400 w-10 h-10 m-1" onClick={() => handleOperator("+")}>+</button>
       </div>
