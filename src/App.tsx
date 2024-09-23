@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Calculator from "./calculator";
 
 function App() {
   const [display, setDisplay] = useState("");
@@ -14,8 +15,12 @@ function App() {
       }
     } else {
       if (value2.length < 4) {
-        setValue2((prevValue2) => (value2.length === 0 ? value : prevValue2 + value));
-        setDisplay((prevDisplay) => (value2.length === 0 ? value : prevDisplay + value));
+        setValue2((prevValue2) =>
+          value2.length === 0 ? value : prevValue2 + value
+        );
+        setDisplay((prevDisplay) =>
+          value2.length === 0 ? value : prevDisplay + value
+        );
       }
     }
   };
@@ -74,113 +79,14 @@ function App() {
   };
 
   return (
-    <div className="bg-black w-56 h-96 m-auto mt-10 p-4 text-white rounded-lg">
-      <div className="h-32 text-right text-4xl pt-10">{display}</div>
-
-      <div>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("1")}
-        >
-          1
-        </button>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("2")}
-        >
-          2
-        </button>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("3")}
-        >
-          3
-        </button>
-        <button
-          className="rounded-full bg-orange-400 w-10 h-10 m-1"
-          onClick={() => handleOperator("/")}
-        >
-          /
-        </button>
-      </div>
-      <div>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("4")}
-        >
-          4
-        </button>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("5")}
-        >
-          5
-        </button>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("6")}
-        >
-          6
-        </button>
-        <button
-          className="rounded-full bg-orange-400 w-10 h-10 m-1"
-          onClick={() => handleOperator("x")}
-        >
-          x
-        </button>
-      </div>
-      <div>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("7")}
-        >
-          7
-        </button>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("8")}
-        >
-          8
-        </button>
-        <button
-          className="rounded-full bg-neutral-600 w-10 h-10 m-1"
-          onClick={() => handleValue("9")}
-        >
-          9
-        </button>
-        <button
-          className="rounded-full bg-orange-400 w-10 h-10 m-1"
-          onClick={() => handleOperator("-")}
-        >
-          -
-        </button>
-      </div>
-      <div>
-        <button
-          className="rounded-full bg-neutral-400 w-10 h-10 m-1"
-          onClick={() => handleValue("0")}
-        >
-          0
-        </button>
-        <button
-          className="rounded-full bg-neutral-400 w-10 h-10 m-1"
-          onClick={() => handleClear()}
-        >
-          C
-        </button>
-        <button
-          className="rounded-full bg-neutral-400 w-10 h-10 m-1"
-          onClick={() => handleCalculate()}
-        >
-          =
-        </button>
-        <button
-          className="rounded-full bg-orange-400 w-10 h-10 m-1"
-          onClick={() => handleOperator("+")}
-        >
-          +
-        </button>
-      </div>
+    <div>
+      <Calculator
+        handleCalculate={handleCalculate}
+        handleClear={handleClear}
+        handleOperator={handleOperator}
+        handleValue={handleValue}
+        display={display}
+      />
     </div>
   );
 }
