@@ -6,17 +6,26 @@ function App() {
   const [value2, setValue2] = useState("");
   const [operator, setOperator] = useState("");
 
+  console.log("value1", value1)
+  console.log("value2", value2)
+
   const handleValue = (value: string) => {
     if (operator.length === 0) {
+      if (value1.length < 4){
       setValue1((prevValue1) => prevValue1 + value);
       setDisplay((prevValue1) => prevValue1 + value);
+      }
     } else {
       if (value2.length === 0) {
+      
         setValue2(value);
         setDisplay(value);
+   
       } else {
+        if (value2.length < 4){
         setValue2((prevValue2) => prevValue2 + value);
         setDisplay((prevValue2) => prevValue2 + value);
+        }
       }
     }
   };
