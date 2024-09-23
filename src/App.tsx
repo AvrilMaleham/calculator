@@ -8,6 +8,7 @@ function App() {
 
   console.log("value1", value1);
   console.log("value2", value2);
+  console.log("operator", operator);
 
   const handleValue = (value: string) => {
     if (operator.length === 0) {
@@ -29,8 +30,13 @@ function App() {
   };
 
   const handleOperator = (value: string) => {
-    setOperator(value);
-    setDisplay(value);
+    if (value2.length === 0) {
+      setOperator(value);
+      setDisplay(value);
+    } else {
+      handleCalculate();
+      setOperator(value);
+    }
   };
 
   const handleCalculate = () => {
